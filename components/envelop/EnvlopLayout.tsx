@@ -1,8 +1,8 @@
 import React from "react";
-import TeamSwitcher from "./components/team-switcher";
-import { MainNav } from "./components/main-nav";
-import { Search } from "./components/search";
-import { UserNav } from "./components/user-nav";
+import TeamSwitcher from "./envelop-components/team-switcher";
+import { MainNav } from "./envelop-components/main-nav";
+import { Search } from "./envelop-components/search";
+import { UserNav } from "./envelop-components/user-nav";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,10 +12,63 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CalendarDateRangePicker } from "./components/date-range-picker";
+import { CalendarDateRangePicker } from "./envelop-components/date-range-picker";
 import { Badge } from "../ui/badge";
+import ManagementTableTabs from "./envelop-components/management-table-tabs";
+
+
 
 const EnvlopLayout = ({ children }: { children: React.ReactNode }) => {
+  
+const components: { title: string; users: number ; told_price : number,status: string}[] = [
+  {
+    title : "Customer 1",
+    users : 10,
+    told_price : 1000000000,
+    status : "wanited"
+  },
+
+  {
+    title : "Customer 1",
+    users : 10,
+    told_price : 1000000000,
+    status : "wanited"
+  },
+  {
+    title : "Customer 1",
+    users : 10,
+    told_price : 1000000000,
+    status : "Reserved"
+  },
+  {
+    title : "Customer 1",
+    users : 10,
+    told_price : 1000000000,
+    status : "Reserved"
+  },
+  {
+    title : "Customer 1",
+    users : 10,
+    told_price : 1000000000,
+    status : "Reserved"
+  },
+  
+  {
+    title : "Customer 1",
+    users : 10,
+    told_price : 1000000000,
+    status : "Reserved"
+  },
+  
+  {
+    title : "Customer 1",
+    users : 10,
+    told_price : 1000000000,
+    status : "Reserved"
+  },
+
+  
+]
   return (
     <div className=" flex-col md:flex">
       <div className="border-b">
@@ -176,516 +229,8 @@ const EnvlopLayout = ({ children }: { children: React.ReactNode }) => {
               </div>
             </TabsContent>
 
-            <TabsContent value="analytics" className="space-y-4">
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-12">
-                <Card className="col-span-8">
-                  <Tabs defaultValue="table" className="">
-                    <TabsList className="m-[20px]">
-                      <TabsTrigger value="table">Table</TabsTrigger>
-                      <TabsTrigger value="menu">Menu</TabsTrigger>
-                    </TabsList>
-
-                    <TabsContent value="table" className="">
-                      <CardContent className="grid gap-3 overflow-hidden  grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-
-                        <Card>
-                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-[15px] font-bold text-[#f4c95d]">
-                              Table 1
-                            </CardTitle>
-                            {/* <Badge variant="outline" className="bg-[#de4e4e] text-[white]"> Reserve </Badge> */}
-                            <Badge
-                              variant="outline"
-                              className="bg-[#72c88c] text-[white]"
-                            >
-                              {"Wait"}
-                            </Badge>
-                          </CardHeader>
-                          <CardContent>
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className="flex flex-row items-center justify-between space-y-0 ">
-                              <Button className="w-[80px] h-[25px]">
-                                book
-                              </Button>
-
-                              <Button className="w-[80px] h-[25px]">pay</Button>
-                            </div>
-                          </CardContent>
-                        </Card>
-
-
-                        <Card>
-                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-[15px] font-bold text-[#f4c95d]">
-                              Table 1
-                            </CardTitle>
-                            {/* <Badge variant="outline" className="bg-[#de4e4e] text-[white]"> Reserve </Badge> */}
-                            <Badge
-                              variant="outline"
-                              className="bg-[#72c88c] text-[white]"
-                            >
-                              {"Wait"}
-                            </Badge>
-                          </CardHeader>
-                          <CardContent>
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className="flex flex-row items-center justify-between space-y-0 ">
-                              <Button className="w-[80px] h-[25px]">
-                                book
-                              </Button>
-
-                              <Button className="w-[80px] h-[25px]">pay</Button>
-                            </div>
-                          </CardContent>
-                        </Card>  
-                        
-                        <Card>
-                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-[15px] font-bold text-[#f4c95d]">
-                              Table 1
-                            </CardTitle>
-                            {/* <Badge variant="outline" className="bg-[#de4e4e] text-[white]"> Reserve </Badge> */}
-                            <Badge
-                              variant="outline"
-                              className="bg-[#72c88c] text-[white]"
-                            >
-                              {"Wait"}
-                            </Badge>
-                          </CardHeader>
-                          <CardContent>
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className="flex flex-row items-center justify-between space-y-0 ">
-                              <Button className="w-[80px] h-[25px]">
-                                book
-                              </Button>
-
-                              <Button className="w-[80px] h-[25px]">pay</Button>
-                            </div>
-                          </CardContent>
-                        </Card>  
-                        
-                        
-                        <Card>
-                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-[15px] font-bold text-[#f4c95d]">
-                              Table 1
-                            </CardTitle>
-                            {/* <Badge variant="outline" className="bg-[#de4e4e] text-[white]"> Reserve </Badge> */}
-                            <Badge
-                              variant="outline"
-                              className="bg-[#72c88c] text-[white]"
-                            >
-                              {"Wait"}
-                            </Badge>
-                          </CardHeader>
-                          <CardContent>
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className="flex flex-row items-center justify-between space-y-0 ">
-                              <Button className="w-[80px] h-[25px]">
-                                book
-                              </Button>
-
-                              <Button className="w-[80px] h-[25px]">pay</Button>
-                            </div>
-                          </CardContent>
-                        </Card> 
-                        
-                        <Card>
-                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-[15px] font-bold text-[#f4c95d]">
-                              Table 1
-                            </CardTitle>
-                            {/* <Badge variant="outline" className="bg-[#de4e4e] text-[white]"> Reserve </Badge> */}
-                            <Badge
-                              variant="outline"
-                              className="bg-[#72c88c] text-[white]"
-                            >
-                              {"Wait"}
-                            </Badge>
-                          </CardHeader>
-                          <CardContent>
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className="flex flex-row items-center justify-between space-y-0 ">
-                              <Button className="w-[80px] h-[25px]">
-                                book
-                              </Button>
-
-                              <Button className="w-[80px] h-[25px]">pay</Button>
-                            </div>
-                          </CardContent>
-                        </Card>  
-                        
-                        <Card>
-                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-[15px] font-bold text-[#f4c95d]">
-                              Table 1
-                            </CardTitle>
-                            {/* <Badge variant="outline" className="bg-[#de4e4e] text-[white]"> Reserve </Badge> */}
-                            <Badge
-                              variant="outline"
-                              className="bg-[#72c88c] text-[white]"
-                            >
-                              {"Wait"}
-                            </Badge>
-                          </CardHeader>
-                          <CardContent>
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className="flex flex-row items-center justify-between space-y-0 ">
-                              <Button className="w-[80px] h-[25px]">
-                                book
-                              </Button>
-
-                              <Button className="w-[80px] h-[25px]">pay</Button>
-                            </div>
-                          </CardContent>
-                        </Card> 
-                        
-                        <Card>
-                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-[15px] font-bold text-[#f4c95d]">
-                              Table 1
-                            </CardTitle>
-                            {/* <Badge variant="outline" className="bg-[#de4e4e] text-[white]"> Reserve </Badge> */}
-                            <Badge
-                              variant="outline"
-                              className="bg-[#72c88c] text-[white]"
-                            >
-                              {"Wait"}
-                            </Badge>
-                          </CardHeader>
-                          <CardContent>
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className="flex flex-row items-center justify-between space-y-0 ">
-                              <Button className="w-[80px] h-[25px]">
-                                book
-                              </Button>
-
-                              <Button className="w-[80px] h-[25px]">pay</Button>
-                            </div>
-                          </CardContent>
-                        </Card>
-                        
-                        <Card>
-                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-[15px] font-bold text-[#f4c95d]">
-                              Table 1
-                            </CardTitle>
-                            {/* <Badge variant="outline" className="bg-[#de4e4e] text-[white]"> Reserve </Badge> */}
-                            <Badge
-                              variant="outline"
-                              className="bg-[#72c88c] text-[white]"
-                            >
-                              {"Wait"}
-                            </Badge>
-                          </CardHeader>
-                          <CardContent>
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className=" mt-[10px] mb-[10px] flex gap-1 flex-row items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="h-4 w-4 text-muted-foreground"
-                              >
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                              </svg>
-                              <span className="">: 99+</span>
-                            </div>
-
-                            <div className="flex flex-row items-center justify-between space-y-0 ">
-                              <Button className="w-[80px] h-[25px]">
-                                book
-                              </Button>
-
-                              <Button className="w-[80px] h-[25px]">pay</Button>
-                            </div>
-                          </CardContent>
-                        </Card> 
-                        
-                      </CardContent>
-                    </TabsContent>
-                    <TabsContent value="menu">Menu</TabsContent>
-                  </Tabs>
-                </Card>
-
-                <Card className="col-span-8 lg:col-span-4 md:col-span-8">
-                  <CardHeader>
-                    <CardTitle>Recent Sales</CardTitle>
-                    <CardDescription>
-                      You made 265 sales this month.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>{/* <RecentSales /> */}</CardContent>
-                </Card>
-              </div>
+            <TabsContent value="analytics" className="space-y-4 col-span-12">
+                <ManagementTableTabs  components={components} />
             </TabsContent>
           </Tabs>
         </div>
